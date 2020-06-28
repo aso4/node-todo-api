@@ -7,7 +7,23 @@ router.get('/', (req, res) => res.send('Hello world!'));
 
 router.route('/todos')
   .get((req, res) => {
-    res.json({}); // send blank json
+    res.json([
+              {
+                "_id": "a",
+                "text": "Item 1",
+                "done": false
+              },
+              {
+                "_id": "b",
+                "text": "Item 2",
+                "done": false
+              },
+              {
+                "_id": "c",
+                "text": "Item 3",
+                "done": true
+              }
+  ]); // send blank json
   })
 
 app.use('/', router); // hooks things together
