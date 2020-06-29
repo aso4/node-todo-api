@@ -11,3 +11,12 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Connected to MongoDb!');
 });
+
+const todoSchema = new mongoose.Schema({
+  text: String,
+  done: Boolean
+});
+
+const Todo = mongoose.model('Todo', todoSchema);
+
+module.export = Todo;
