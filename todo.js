@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.set('useFindAndModify', false); // workaround for deprecated methods
 
-mongoose.connect('mongodob://localhost:27017', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 
@@ -15,7 +15,7 @@ db.once('open', function() {
 const todoSchema = new mongoose.Schema({
   text: String,
   done: Boolean
-});
+})
 
 const Todo = mongoose.model('Todo', todoSchema);
 
