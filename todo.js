@@ -17,6 +17,14 @@ const todoSchema = new mongoose.Schema({
   done: Boolean
 })
 
+todoSchema.statics.createDocument = function(params, callback) {
+  return Todo.create({ text: params.text, done: params.done }),
+    function(err, todo) {
+      if (err) return handleError(err);
+      callback(todo);
+    }
+}
+
 todoSchema.statics.all = function(callback) {
   return Todo.find({}, function(err, todos) {
     callback({todos: todos});
@@ -25,4 +33,4 @@ todoSchema.statics.all = function(callback) {
 
 const Todo = mongoose.model('Todo', todoSchema);
 
-module.export = Todo;
+module.exports = Todo;
