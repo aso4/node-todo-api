@@ -2,9 +2,13 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const router = express.Router();
-const bodyParse = require('body-parser');
+const bodyParser = require('body-parser');
 
 const Todo = require('./todo'); // local require instead of npm
+
+app.use(express.static('public'));
+
+app.use(bodyParser.json());
 
 router.get('/', (req, res) => res.send('Hello world!'));
 

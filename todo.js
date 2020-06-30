@@ -18,11 +18,12 @@ const todoSchema = new mongoose.Schema({
 })
 
 todoSchema.statics.createDocument = function(params, callback) {
-  return Todo.create({ text: params.text, done: params.done }),
+  return Todo.create({ text: params.text, done: params.done },
     function(err, todo) {
       if (err) return handleError(err);
       callback(todo);
     }
+  )
 }
 
 todoSchema.statics.all = function(callback) {
