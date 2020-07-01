@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
   next(); // call next middleware
 })
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.use(bodyParser.json());
 
